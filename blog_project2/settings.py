@@ -32,14 +32,17 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # my apps
+    'account',
+    'blog_app',
+
+    # django's
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog_app',
-    'account',
 ]
 
 MIDDLEWARE = [
@@ -69,6 +72,9 @@ TEMPLATES = [
         },
     },
 ]
+
+# Overwriting the default user model
+AUTH_USER_MODEL = 'account.Account'
 
 WSGI_APPLICATION = 'blog_project2.wsgi.application'
 
