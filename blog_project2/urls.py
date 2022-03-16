@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from blog_app import views
+from account.views import registration_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    re_path(r'^home/$', views.home_page, name='home_page'),
+    re_path(r'^register/$', registration_view, name='register')
 ]
