@@ -48,8 +48,7 @@ class Account(AbstractBaseUser):
     objects = MyAccountManager()
 
     def __str__(self):
-        return f"Username: {self.username} Email: {self.email}"
-
+        return self.email
 
     def has_perm(self, perm, obj=None):
         """Checks if the user has any permissions"""
