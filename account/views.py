@@ -1,6 +1,7 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import RegistrationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse
 
 # Create your views here.
@@ -20,3 +21,9 @@ def registration_view(request):
     else:
         context['form'] = RegistrationForm(request.POST)
     return render(request, 'account/register.html', context)
+
+def logout_view(request):
+    """For logging out"""
+    logout(request)
+    return redirect('home_page')
+    # return HttpResponse('logged out')

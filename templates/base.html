@@ -9,12 +9,28 @@
     </title>
 </head>
 <body>
+    <div style="margin-bottom: 20px;text-align: center;">
+        {% if request.user.is_authenticated %}
+        <p>Hello, <b>{{ request.user.username }}</b>.</p>
+        <button style="background-color: green;padding: 15px;">
+            <a style="color: #fff;text-decoration: none;" href="{% url 'logout' %}" >Logout</a>
+        </button>
+        {% else %}
+            <button style="background-color: green;padding: 15px;border-radius: 200px;border: none;">
+                <a style="color: #fff;text-decoration: none;" href="#">Login</a>
+            </button>
+            <button style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;">
+                <a style="color: #fff;text-decoration: none;" href="{% url 'register' %}">Register Here</a>
+            </button>
+        {% endif %}
+    </div>
+    <hr>
     {% block content %}
     {% endblock content %}
 </body>
 
-<footer>
-    {% block footer %}
-    {% endblock footer %}
+<footer style="text-align: center;">
+    <hr>
+    CodewithTolu | 2022
 </footer>
 </html>
