@@ -9,7 +9,6 @@ class AccountAdmin(UserAdmin):
     readonly_fields = ('date_joined', 'last_login')
     filter_horizontal = ()
     list_filter = ()
-    # fieldset = ()
 
     fieldsets = (
         # (None, {'fields': ('email', 'password')}),
