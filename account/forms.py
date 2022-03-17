@@ -17,8 +17,11 @@ class LoginForm(forms.ModelForm):
 
 
     def clean(self):
-        email = self.cleaned_data.get('email')
-        password = self.cleaned.get(email)
+        if self.is_valid():
+            email = self.cleaned_data['email']
+            password = self.cleaned_data['password']
 
-        if authenticate(email=email, password=password) == False:
-            raise forms.ValidationError('Invalid login details')
+            if not authenticate(email=email, password=password):
+                print('fuck you son of a bitch')
+                raise forms.ValidationError('Invalid login details')
+                

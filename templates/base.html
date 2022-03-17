@@ -9,19 +9,27 @@
     </title>
 </head>
 <body>
-    <div style="margin-bottom: 20px;text-align: center;">
+    <div style="margin-bottom: 20px;margin-top: 40px;text-align: center;">
         {% if request.user.is_authenticated %}
-        <p>Hello, <b>{{ request.user.username }}</b>.</p>
-        <button style="background-color: green;padding: 15px;">
-            <a style="color: #fff;text-decoration: none;" href="{% url 'logout' %}" >Logout</a>
-        </button>
+            <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'home_page' %}">
+                <button style="background-color: green;text-decoration: none;border: none;color: #fff;">Home</button>
+            </a>
+            <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'logout' %}">
+                <button style="background-color: green;text-decoration: none;border: none;color: #fff;">Logout</button>
+            </a>
+            <p>Hello, <b>{{ request.user.username }}</b>.</p>
         {% else %}
-            <button style="background-color: green;padding: 15px;border-radius: 200px;border: none;">
-                <a style="color: #fff;text-decoration: none;" href="{% url 'login' %}">Login</a>
-            </button>
-            <button style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;">
-                <a style="color: #fff;text-decoration: none;" href="{% url 'register' %}">Register Here</a>
-            </button>
+            <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'home_page' %}">
+                <button style="background-color: green;text-decoration: none;border: none;color: #fff;">Home</button>
+            </a>
+            <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'login' %}">
+                <button style="background-color: green;text-decoration: none;border: none;color: #fff;">Login</button>
+            </a>
+            <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'register' %}">
+                <button style="background-color: green;text-decoration: none;border: none;color: #fff;" >
+                    Register Here
+                </button>
+            </a>
         {% endif %}
     </div>
     <hr>

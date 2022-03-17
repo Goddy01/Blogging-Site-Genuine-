@@ -38,9 +38,9 @@ def login_view(request):
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
-            email = request.POST.get('email')
-            password = request.POST.get('password')
-            user = authenticate(email, password)
+            email = request.POST['email']
+            password = request.POST['password']
+            user = authenticate(email=email, password=password)
             if user:
                 login(request, user)
                 return redirect('home_page')
@@ -48,8 +48,7 @@ def login_view(request):
         #     return redirect('login_view')
     else:
         login_form = LoginForm()
-        context['login_form'] = login_form
-        print(context['login_form'])
-    print(context['login_form'])
-    return redirect('login')
+    
+    context['login_form'] = login_form
+    return render(request, 'account/login.html', context)
 
