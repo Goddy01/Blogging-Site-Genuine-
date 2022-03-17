@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from blog_app import views
-from account.views import registration_view, logout_view
+from account.views import registration_view, logout_view, login_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^home/$', views.home_page, name='home_page'),
     re_path(r'^register/$', registration_view, name='register'),
-    re_path(r'^logout/$', logout_view, name='logout')
+    re_path(r'^logout/$', logout_view, name='logout'),
+    re_path(r'^login/$', login_view, name='login')
 ]

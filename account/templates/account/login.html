@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+
+    {% for field in login_form %}
+        <p>
+            {{field.label_tag}}
+            {{field}}
+
+            {% if field.help_text %}
+                <small style="color: red;">{{field.help_text}}</small>
+            {% endif %}
+
+            {% if field.errors %}
+                <p style="color: red;">{{field.errors}}</p>
+            {% endif %}
+        </p>
+    {% endfor %}
+
+    {% if login_form.errors.as_data() %}
+        <p style="color: #fff;background-color: red;">{{login_form.errors.as_data()}}</p>
+    {% endif %}
+    <input type="submit" value="Login">
+{% endblock content %}
