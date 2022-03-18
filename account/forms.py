@@ -1,17 +1,19 @@
 import email
-from unittest import expectedFailure
+from django.core import exceptions
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from .models import Account
 from django.contrib.auth import authenticate
 
 class RegistrationForm(UserCreationForm):
+    """The form for registering an account."""
     email = forms.EmailField(max_length=50, help_text='Provide a valid email address.')
     class Meta():
         model = Account
         fields = ('email', 'username', 'password1', 'password2')
 
 class LoginForm(forms.ModelForm):
+    """The form to for logging in."""
     password = forms.CharField(widget=forms.PasswordInput, label='Password')
     class Meta():
         model = Account
@@ -24,11 +26,11 @@ class LoginForm(forms.ModelForm):
 
             user = authenticate(email=email, password=password)
             if not user:
-                print('you a bitch')
                 raise forms.ValidationError("Invalid login details.")
 
 
 class AccountUpdateForm(forms.ModelForm):
+    """The form for updating the user details in the database"""
     class Meta:
         model = Account
         fields = ('email', 'username')
@@ -37,7 +39,8 @@ class AccountUpdateForm(forms.ModelForm):
         email = self.cleaned_data.get('email')
 
         try:
-            account = Account.objects.exclude(email=email)
+            # Ckecking if this email does not already exist in the database
+            account = Account.objects.exclude(pk=self.instance.pk).get(email=email)
         except Account.DoesNotExist:
             return email
         raise forms.ValidationError(f"Email: {email} is alredy in use.")
@@ -46,7 +49,8 @@ class AccountUpdateForm(forms.ModelForm):
         username = self.cleaned_data.get('username')
 
         try:
-            account = Account.objects.exclude(username=username)
+            # Ckecking if this username does not already exist in the database
+            account = Account.objects.exclude(pk=self.instance.pk).get(username=username)
         except Account.DoesNotExist:
             return username
         raise forms.ValidationError(f'Username: {username} is already in use.')

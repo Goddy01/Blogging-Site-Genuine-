@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def registration_view(request):
+    """Handles the registration of new accounts"""
     context = {}
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -25,13 +26,14 @@ def registration_view(request):
 
 @login_required
 def logout_view(request):
-    """For logging out"""
+    """Handles the logging out of users"""
     logout(request)
     return redirect('home_page')
     # return HttpResponse('logged out')
 
 
 def login_view(request):
+    """Handles the logging in of users"""
     context = {}
     if request.user.is_authenticated:
         return redirect('home_page')
@@ -53,16 +55,23 @@ def login_view(request):
 
 @login_required
 def update_view(request):
+    """Handles the updating of user details"""
     context = {}
 
     if not request.user.is_authenticated:
         return redirect('login')
 
     if request.method == 'POST':
-        update_form = AccountUpdateForm(request.POST)
+        update_form = AccountUpdateForm(request.POST, instance=request.user)
         if update_form.is_valid():
             update_form.save()
     else:
-        update_form = AccountUpdateForm()
+        update_form = AccountUpdateForm(
+            # initial= {
+            #     'email': request.POST.email,
+            #     'username': request.POST.username,
+            # }
+            instance=request.user
+        )
     context['update_form'] = update_form
     return render(request, 'account/account.html', context)

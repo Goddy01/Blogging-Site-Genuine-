@@ -20,7 +20,7 @@
             <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'update' %}">
                 <button style="background-color: green;text-decoration: none;border: none;color: #fff;">Update Account Details</button>
             </a>
-            <p>Hello, <b>{{ request.user.username }}</b>.</p>
+            <p>Hello, <b>{{ request.user.username|title }}</b>.</p>
         {% else %}
             <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'home_page' %}">
                 <button style="background-color: green;text-decoration: none;border: none;color: #fff;">Home</button>
