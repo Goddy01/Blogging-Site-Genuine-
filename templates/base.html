@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
         {% block title %}{% endblock title %}
     </title>
+    {% include 'snippets/header.html' %}
 </head>
 <body>
     <div style="margin-bottom: 20px;margin-top: 40px;text-align: center;">
@@ -20,7 +18,7 @@
             <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'update' %}">
                 <button style="background-color: green;text-decoration: none;border: none;color: #fff;">Update Account Details</button>
             </a>
-            <p>Hello, <b>{{ request.user.username|title }}</b>.</p>
+            <p style="margin-top: 15px;">Hello, <b>{{ request.user.username|title }}</b>.</p>
         {% else %}
             <a style="background-color: green;padding: 15px;display: inline;border-radius: 200px;border: none;" href="{% url 'home_page' %}">
                 <button style="background-color: green;text-decoration: none;border: none;color: #fff;">Home</button>
@@ -38,10 +36,12 @@
     <hr>
     {% block content %}
     {% endblock content %}
+
+
+
 </body>
 
 <footer style="text-align: center;">
-    <hr>
-    CodewithTolu | 2022
+    {% include 'snippets/footer.html' %}
 </footer>
 </html>
