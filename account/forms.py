@@ -28,4 +28,25 @@ class LoginForm(forms.ModelForm):
                 raise forms.ValidationError("Invalid login details.")
 
 
+class AccountUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Account
+        fields = ('email', 'username')
 
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        try:
+            account = Account.objects.exclude(email=email)
+        except Account.DoesNotExist:
+            return email
+        raise forms.ValidationError(f"Email: {email} is alredy in use.")
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+
+        try:
+            account = Account.objects.exclude(username=username)
+        except Account.DoesNotExist:
+            return username
+        raise forms.ValidationError(f'Username: {username} is already in use.')
