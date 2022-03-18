@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-    <div>
+    <div class="container">
         <h1>Login Here:</h1>
         <form method="post">
             {% csrf_token %}
@@ -25,7 +25,7 @@
                     <p>{{login_form.non_field_errors}}</p>
                 </div>
             {% endif %}
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" class="btn btn-primary">
         </form>
     </div>
 {% endblock content %}

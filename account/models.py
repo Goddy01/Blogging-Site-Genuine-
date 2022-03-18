@@ -33,7 +33,7 @@ class MyAccountManager(BaseUserManager):
 
 class Account(AbstractBaseUser):
     """Creates the fields for the details in the database"""
-    email                   = models.EmailField(unique=True, max_length=50, verbose_name='email address')
+    email                   = models.EmailField(unique=True, max_length=50)
     username                = models.CharField(unique=True, max_length=25)
     date_joined             = models.DateTimeField(auto_now_add=True)
     last_login              = models.DateTimeField(auto_now=True)
