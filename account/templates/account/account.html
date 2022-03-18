@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block title %}Login{% endblock title %}
 {% block content %}
     <div class="container">
@@ -7,7 +8,6 @@
             {% csrf_token %}
             {% for field in update_form %}
                 <p>
-                    {{field.label_tag}}
                     {{field}}
         
                     {% if field.help_text %}
