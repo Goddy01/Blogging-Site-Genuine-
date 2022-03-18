@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from .forms import RegistrationForm, LoginForm
+from .forms import AccountUpdateForm, RegistrationForm, LoginForm
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -51,4 +51,18 @@ def login_view(request):
     return render(request, 'account/login.html', context)
     
 
+@login_required
+def update_view(request):
+    context = {}
 
+    if not request.user.is_authenticated:
+        return redirect('login')
+
+    if request.method == 'POST':
+        update_form = AccountUpdateForm(request.POST)
+        if update_form.is_valid():
+            update_form.save()
+    else:
+        update_form = AccountUpdateForm()
+    context['update_form'] = update_form
+    return render(request, 'account/account.html', context)
