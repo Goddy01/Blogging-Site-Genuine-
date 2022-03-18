@@ -2,10 +2,10 @@
 {% block title %}Login{% endblock title %}
 {% block content %}
     <div>
-        <h1>Login Here:</h1>
+        <h1>Update Account Details:</h1>
         <form method="post">
             {% csrf_token %}
-            {% for field in login_form %}
+            {% for field in update_form %}
                 <p>
                     {{field.label_tag}}
                     {{field}}
@@ -20,9 +20,9 @@
                 </p>
     
             {% endfor %}
-            {% if login_form.non_field_errors %}
+            {% if update_form.non_field_errors %}
                 <div style="color: red;">
-                    <p>{{login_form.non_field_errors}}</p>
+                    <p>{{update_form.non_field_errors}}</p>
                 </div>
             {% endif %}
             <input type="submit" value="Login">

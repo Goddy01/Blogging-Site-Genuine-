@@ -1,3 +1,5 @@
+import email
+from unittest import expectedFailure
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
 from .models import Account
@@ -10,18 +12,20 @@ class RegistrationForm(UserCreationForm):
         fields = ('email', 'username', 'password1', 'password2')
 
 class LoginForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(widget=forms.PasswordInput, label='Password')
     class Meta():
         model = Account
         fields = ('email', 'password')
 
-
     def clean(self):
         if self.is_valid():
-            email = self.cleaned_data['email']
-            password = self.cleaned_data['password']
+            email = self.cleaned_data.get('email')
+            password = self.cleaned_data.get('password')
 
-            if not authenticate(email=email, password=password):
-                print('fuck you son of a bitch')
-                raise forms.ValidationError('Invalid login details')
-                
+            user = authenticate(email=email, password=password)
+            if not user:
+                print('you a bitch')
+                raise forms.ValidationError("Invalid login details.")
+
+
+
