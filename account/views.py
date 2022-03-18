@@ -66,11 +66,11 @@ def update_view(request):
             update_form.save()
     else:
         update_form = AccountUpdateForm(
-            initial= {
-                'email': request.POST.email,
-                'username': request.POST.username,
-            }
-            # instance=request.user
+            # initial= {
+            #     'email': request.POST.email,
+            #     'username': request.POST.username,
+            # }
+            instance=request.user
         )
     context['update_form'] = update_form
     return render(request, 'account/account.html', context)

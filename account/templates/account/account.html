@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load placeholders %}
 {% block title %}Login{% endblock title %}
 {% block content %}
     <div class="container">
@@ -8,7 +8,7 @@
             {% csrf_token %}
             {% for field in update_form %}
                 <p>
-                    {{field}}
+                    {{field|placeholder:field.name}}
         
                     {% if field.help_text %}
                         <small style="color: red;">{{field.help_text}}</small>
