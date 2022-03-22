@@ -12,10 +12,9 @@ def registration_view(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            email = form.cleaned_data.get('email')
-            password = form.cleaned_data.get('password')
             user = form.save()
             login(request, user)
+            context['success_message'] = 'Account Creation Successful'
             return redirect('login')
         else:
             context['form'] = form

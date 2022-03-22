@@ -21,7 +21,7 @@
                     {% if request.user.is_authenticated %}
                     <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link {% if url_name == 'logout' %}active{% endif %}">Logout</a></li>
                     <li class="nav-item"><a href="{% url 'update' %}" class="nav-link {% if url_name == 'update' %}active{% endif %}">Update Account Details</a></li>
-                    <li class="mt-2 fw-bold ps-2">Hello, {{ request.user.username }}🙂.</li>
+                    <li class="mt-2 fw-bold ps-2">Hello, {{ request.user.username|title }}🙂.</li>
                     {% else %}
                     <li class="nav-item"><a href="{% url 'login' %}" class="nav-link {% if url_name == 'login' %}active{% endif %}">Login</a></li>
                     <li class="nav-item active"><a href="{% url 'register' %}" class="nav-link {% if url_name == 'register' %}active{% endif %}">Register</a></li>

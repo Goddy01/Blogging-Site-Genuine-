@@ -31,10 +31,10 @@
         <form method="post">
             {% csrf_token %}
 
-        <h1 class="h3 mb-3 fw-normal">Update Account Details</h1>
+        <h1 class="h3 mb-3 fw-normal text-center">Update Account Details</h1>
     
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" name="email" value="{{request.user.email}}">
+            <input type="email" class="form-control" id="floatingInput" placeholder="Email Address" name="email" value="{{request.user.email}}">
             <label for="floatingInput">Email Address</label>
         </div>
         <div class="form-floating">
