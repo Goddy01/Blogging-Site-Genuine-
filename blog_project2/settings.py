@@ -28,9 +28,12 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-if DEBUG:
+
+if DEBUG: 
+    # Show the url to reset the password in the console.
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
+    # Actually sends it to the user's email address.
     pass
 
 # Application definition
