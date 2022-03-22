@@ -2,17 +2,49 @@
 {% load placeholders %}
 {% block title %}Login{% endblock title %}
 {% block content %}
-    <div class="container">
-        <h1>Login Here:</h1>
+    <style>
+        .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+        }
+
+        .form-signin .form-floating:focus-within {
+        z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+        margin-bottom: 10px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        }
+
+    </style>
+
+    <main class="form-signin">
         <form method="post">
             {% csrf_token %}
-            {% for field in login_form %}
-                <p>
-                    {{field|placeholder:field.name}}
-                    {% if field.help_text %}
-                        <small style="color: red;">{{field.help_text}}</small>
-                    {% endif %}
+
+        <h1 class="h3 mb-3 fw-normal">Sign-in</h1>
     
+        <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" name="email">
+            <label for="floatingInput">Email Address</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" name="password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        {% for field in login_form %}
+                <p>
                     {% for error in field.errors %}
                         <p style="color: red;">{{error}}</p>
                     {% endfor %}
@@ -24,7 +56,10 @@
                     <p>{{login_form.non_field_errors}}</p>
                 </div>
             {% endif %}
-            <input type="submit" value="Login" class="btn btn-primary">
+    
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
         </form>
-    </div>
+    </main>
+  
+
 {% endblock content %}

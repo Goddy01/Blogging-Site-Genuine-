@@ -64,13 +64,8 @@ def update_view(request):
         update_form = AccountUpdateForm(request.POST, instance=request.user)
         if update_form.is_valid():
             update_form.save()
+            context['success_message']='Details successfully updated.'
     else:
-        update_form = AccountUpdateForm(
-            # initial= {
-            #     'email': request.POST.email,
-            #     'username': request.POST.username,
-            # }
-            instance=request.user
-        )
+        update_form = AccountUpdateForm(instance=request.user)
     context['update_form'] = update_form
     return render(request, 'account/account.html', context)

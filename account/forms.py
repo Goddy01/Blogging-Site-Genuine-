@@ -43,7 +43,7 @@ class AccountUpdateForm(forms.ModelForm):
             account = Account.objects.exclude(pk=self.instance.pk).get(email=email)
         except Account.DoesNotExist:
             return email
-        raise forms.ValidationError(f"Email: {email} is alredy in use.")
+        raise forms.ValidationError(f"Email: {email}, is alredy in use.")
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
@@ -53,4 +53,4 @@ class AccountUpdateForm(forms.ModelForm):
             account = Account.objects.exclude(pk=self.instance.pk).get(username=username)
         except Account.DoesNotExist:
             return username
-        raise forms.ValidationError(f'Username: {username} is already in use.')
+        raise forms.ValidationError(f'Username: {username}, is already in use.')
