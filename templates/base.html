@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <title>
@@ -13,7 +14,9 @@
         <div class="container bg-light px-5">
             <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom header">
               <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <span class="fs-4">CodewithTolu</span>
+                <span class="fs-4">
+                    <img src="{% static 'cover.png' %}" alt="" class="logo">
+                </span>
               </a>
               {% with request.resolver_match.url_name as url_name %}
                 <ul class="nav nav-pills nav-fill">
