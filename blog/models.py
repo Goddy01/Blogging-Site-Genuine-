@@ -20,6 +20,7 @@ class BlogPost(models.Model):
     author                  = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     slug                    = models.SlugField(blank=True, unique=True)
 
+<<<<<<< HEAD
     def __str__(self):
         return self.title
 
@@ -34,3 +35,8 @@ def pre_save_blog_post_receiver(sender, instance, **kwargs):
     if not instance.slug:
         instance.slug = slugify(instance.author.username + "-" + instance.title)
 pre_save.connect(pre_save_blog_post_receiver, sender=BlogPost)
+=======
+    
+    def __str__(self):
+        return self.title
+>>>>>>> f9043ea20fdd5a36d09e348ebf656ed469ac0f2d
