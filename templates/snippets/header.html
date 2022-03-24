@@ -13,6 +13,8 @@
 
 <!-- Bootstrap core CSS -->
 <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style type="text/css">
         body {
         background-color: #EDEFF1;
@@ -23,10 +25,24 @@
         height:100%;
     }
 
+    .header {
+        height: 80px;
+        /* max-height: 100px; */
+        /* margin-top: -30px; */
+        /* background-color: red; */
+        width: 100%;
+    }
+    
+    ul {
+        /* position: absolute; */
+        float: right;
+    }
+
     .logo {
-        width: 250px;
-        height: 100px;
-        margin-bottom: -30px;
+        width: 300px;
+        height: 130px;
+        /* margin-bottom: -30px; */
+        margin-left: -55px;
     }
 
 
@@ -73,6 +89,30 @@
 
 .pricing-header {
   max-width: 700px;
+}
+
+@media (max-width: 767px) {
+    .nav-list {
+        display: none;
+    }
+
+    .header {
+        height: 80px;
+        /* background-color: red; */
+    }
+
+    .logo {
+        /* height: 50px; */
+        margin-top: -30px;
+    }
+
+    .navbar-toggler {
+        display: inline;
+        position: absolute;
+        right: 0px;
+        top: 17px;
+        font-size: 25px;
+    }
 }
 
 </style>

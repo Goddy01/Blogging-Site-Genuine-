@@ -16,11 +16,18 @@
               <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom header">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <span class="fs-4">
-                        <img style="width: 200px; height: 100px;" src="{% static 'cover.png' %}" alt="ee">
+                        <img class="logo" src="{% static 'cover.png' %}" alt="ee">
                     </span>
                   </a>
                   {% with request.resolver_match.url_name as url_name %}
-                    <ul class="nav nav-pills nav-fill">
+                  <button class="navbar-toggler d-md-none" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#navbarToggleExternalContent3" aria-controls="navbarToggleExternalContent3"
+                aria-expanded="false" aria-label="Toggle navigation">
+                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fas fa-bars"></i>
+                    </a>
+                </button>
+                    <ul class="nav nav-pills nav-fill nav-list">
                         <li class="nav-item"><a href="{% url 'home_page' %}" class="nav-link {% if url_name == 'home_page' %}active{% endif %}" aria-current="page">Home</a></li>
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link {% if url_name == 'logout' %}active{% endif %}">Logout</a></li>
@@ -31,6 +38,7 @@
                         <li class="nav-item active"><a href="{% url 'register' %}" class="nav-link {% if url_name == 'register' %}active{% endif %}">Register</a></li>
                         {% endif %}
                     </ul>
+
                   {% endwith %}
               </div>
             </header>

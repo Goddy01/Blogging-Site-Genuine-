@@ -2,22 +2,56 @@
 {% block title %}Home{% endblock title %}
 
 {% block content %}
+
+<style>
+    .blog-post-container {
+        display: block;
+        background-color: gray;
+        margin-bottom: 10px;
+    }
+</style>
+
 <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4 fw-normal">Pricing</h1>
-    <p class="fs-5 text-muted">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It’s built with default Bootstrap components and utilities with little customization.</p>
+    <h1 class="display-4 fw-normal"></h1>
+    <p class="fs-5 text-muted"></p>
   </div>
 <div class="container">
-    <div class="d-flex flex-column">
-        <h1>Registered Users</h1>
-        <ol>
-            {% for account in accounts %}
-            <li>
-                <p><b>E-mail</b>: {{ account }}</p>
-                <p><b>Username</b>: {{ account.username|title }}</p>
-            </li>
-            <hr>
-        {% endfor %}
-        </ol>
+    <div class="row">
+        
+        <!-- For 'Create Blog', whin the screen is not large -->
+        <div class="col-lg-7 offset-lg-1  d-lg-none">
+            <a href="#" class="btn btn-primary">Create Post</a>
+        </div>
+
+        <!-- For the left column which is the Blog Feed -->
+        <div class="left-column col-lg-7 offset-lg-1 mt-3 pt-3">
+            <h3>Posts</h3>
+            <div class="blog-post-container">
+                Post 1
+            </div>
+            <div class="blog-post-container">
+                Post 2
+            </div>
+            <div class="blog-post-container">
+                Post 3
+            </div>
+            <div class="blog-post-container">
+                Post 4
+            </div>
+        </div>
+
+        <!-- For the right column which is 'Create Blog' when the screen is large -->
+        <div class="right-column offset-lg-1 col-lg-3 d-lg-flex flex-column d-none pt-3">
+            <div class="create-post-bar">
+                <p>Post 1</p>
+                <p>Post 2</p>
+                <p>Post 3</p>
+                <p>Post 4</p>
+                <p>Post 5</p>
+                <a href="#" class="btn btn-primary">Create Post</a>
+            </div>
+        </div>
+
     </div>
 </div>
 {% endblock content %}
