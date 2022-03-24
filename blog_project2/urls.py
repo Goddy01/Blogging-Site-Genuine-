@@ -21,13 +21,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 from account.views import (
     registration_view, logout_view, 
-    login_view, update_view  
+    login_view, update_view  ,
+    must_authenticate_view,
     )
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     re_path(r'^$', views.home_page, name='home_page'),
     re_path(r'^blog/', include('blog.urls', 'blog')),
+    re_path(r'^must_auth/$', must_authenticate_view, name="must_auth"),
     re_path(r'^register/$', registration_view, name='register'),
     re_path(r'^logout/$', logout_view, name='logout'),
     re_path(r'^login/$', login_view, name='login'),

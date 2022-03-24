@@ -11,7 +11,7 @@ from blog.models import (
 
 def create_blog_view(request):
     if not request.user.is_authenticated:
-        return redirect ('must_authenticate')
+        return redirect ('must_auth')
     context = {}
 
     user = request.user

@@ -1,3 +1,4 @@
+from urllib import request
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import AccountUpdateForm, RegistrationForm, LoginForm
@@ -68,3 +69,7 @@ def update_view(request):
         update_form = AccountUpdateForm(instance=request.user)
     context['update_form'] = update_form
     return render(request, 'account/account.html', context)
+
+
+def must_authenticate_view(request):
+    return render(request, 'account/must_authenticate.html')
