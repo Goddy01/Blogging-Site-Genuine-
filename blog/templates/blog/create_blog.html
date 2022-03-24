@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Create Post{% endblock title %}
+
+{% block content %}
+    <h3>Create Post</h3>
+    <form method="post">
+        {% csrf_token %}
+    </form>
+
+{% endblock content %}
