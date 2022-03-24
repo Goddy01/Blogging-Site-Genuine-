@@ -18,7 +18,7 @@ def create_blog_view(request):
     create_blog_form = CreateBlogPostForm(request.POST or None, request.FILES or None)
     if create_blog_form.is_valid():
         obj = create_blog_form.save(commit=False)
-        author = Account.objects.filter(email=user.email)[1]
+        author = Account.objects.filter(email=user.email).first()
         obj.author = author
         obj.save()
         create_blog_form = CreateBlogPostForm()
