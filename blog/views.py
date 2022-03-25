@@ -1,6 +1,7 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_list_or_404, render, redirect
 from .forms import CreateBlogPostForm
 from account.models import Account
+from .models import BlogPost
 
 from blog.models import (
     BlogPost
@@ -23,3 +24,10 @@ def create_blog_view(request):
     
     context['create_blog_form'] = create_blog_form
     return render(request, 'blog/create_blog.html')
+
+
+def blog_detail_view(request, slug):
+    context = {}
+    blog_details = get_list_or_404(BlogPost, slug=slug)
+    context['blog_details'] = blog_details
+    return render(request, 'blog/blog_details.html')
