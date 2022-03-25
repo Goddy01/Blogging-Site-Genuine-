@@ -1,6 +1,4 @@
-from venv import create
 from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
 from .forms import CreateBlogPostForm
 from account.models import Account
 

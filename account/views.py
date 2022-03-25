@@ -1,10 +1,10 @@
-from urllib import request
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .forms import AccountUpdateForm, RegistrationForm, LoginForm
 from django.contrib.auth import login, authenticate, logout
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from blog.models import BlogPost
 
 # Create your views here.
 def registration_view(request):
@@ -67,6 +67,9 @@ def update_view(request):
             context['success_message']='Details successfully updated.'
     else:
         update_form = AccountUpdateForm(instance=request.user)
+    
+    blog_posts = BlogPost.objects.filter(author=request.user)
+    context['blog_posts'] = blog_posts
     context['update_form'] = update_form
     return render(request, 'account/account.html', context)
 
