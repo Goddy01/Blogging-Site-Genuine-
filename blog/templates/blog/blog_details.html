@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %} Blog Details {% endblock title %}
+
+{% block content %}
+<style>
+    .card {
+        max-width: 900px;
+        min-width: 200px;
+        margin: 0 auto;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="card py-3">
+            <img src="{{blog_details.image.url}}" class="card-img-top">
+            <div class="card-body">
+              <h3 class="card-title">{{blog_details.title}}</h3>
+              <p class="card-text">{{blog_details.body|safe}}</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <p class="card-footer text-muted">
+                Updated on {{blog_details.date_updated}} by {{blog_details.author|title}}
+            </p>
+          </div>
+    </div>
+</div>
+
+{% endblock content %}
