@@ -1,4 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
+from django.urls import reverse
 from .forms import (CreateBlogPostForm,
                     UpdateBlogPostForm
                     )
@@ -23,10 +24,11 @@ def create_blog_view(request):
         author = Account.objects.filter(email=user.email).first() # Return a queryset '.first. gets the first item there
         obj.author = author
         obj.save()
+        context['success_message'] = f'{obj.title} has been posted.'
         create_blog_form = CreateBlogPostForm()
-    
+
     context['create_blog_form'] = create_blog_form
-    return render(request, 'blog/create_blog.html')
+    return render(request, 'blog/create_blog.html', context)
 
 
 def blog_details_view(request, slug):
@@ -46,7 +48,7 @@ def update_blog_post_view(request, slug):
 
     blog_post = get_object_or_404(BlogPost, slug=slug)
     if request.method == 'POST':
-        update_form = UpdateBlogPostForm(request.POST or None, request.FILES or None, instance=request.user)
+        update_form = UpdateBlogPostForm(request.POST or None, request.FILES or None, instance=blog_post)
         if update_form.is_valid():
             update_form.save()
             context['success_message'] = 'Blog Post has been updated.'
