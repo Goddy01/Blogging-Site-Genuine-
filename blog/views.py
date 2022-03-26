@@ -48,7 +48,7 @@ def update_blog_post_view(request, slug):
     if request.method == 'POST':
         update_form = UpdateBlogPostForm(request.POST or None, request.FILES or None, instance=request.user)
         if update_form.is_valid():
-            object = update_form.save()
+            update_form.save()
             context['success_message'] = 'Blog Post has been updated.'
 
     else:
