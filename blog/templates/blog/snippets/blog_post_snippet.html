@@ -19,17 +19,17 @@
 			<a href="{% url 'blog:blog_details' post.slug %}">
 				<img class="card-img-top" src="{{blog_post.image.url}}">
 			</a>
+            <div class="text-muted px-3 pt-3">
+                Updated on {{blog_post.date_updated}} by {{blog_post.author|title}}
+              </div>
 			<div class="card-body mt-2 mb-2">
 				<a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
 					<h2 class="card-title">{{blog_post.title}}</h2>
 				</a>
-				<p class="card-text">{{blog_post.body|safe|truncatechars:180}}</p>
+				<p class="card-text">{{blog_post.body|truncatechars:180}}</p>
 				{% if blog_post.author == request.user %}
 					<a href="{% url 'blog:update_blog_post' blog_post.slug %}" class="btn btn-primary">Update</a>
 				{% endif %}
-			</div>
-			<div class="card-footer text-muted">
-			  Updated on {{blog_post.date_updated}} by {{blog_post.author}}
 			</div>
 		</div>
 	</div>
