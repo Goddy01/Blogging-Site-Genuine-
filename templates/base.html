@@ -7,12 +7,12 @@
     </title>
     {% include 'snippets/header.html' %}
 </head>
-<body>
+<body class="bg">
 
     <div class="main">
 
         <div class="container-fluid bg-white px-5">
-            <header class="fixed-top" style="background-color: #d6d9db;">
+            <header class="fixed-top" style="background-color: #ECEFF1;">
               <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 header">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <span class="fs-4 logo-parent">
@@ -32,7 +32,7 @@
                         {% if request.user.is_authenticated %}
                         <li class="nav-item"><a href="{% url 'logout' %}" class="nav-link {% if url_name == 'logout' %}active{% endif %}">Logout</a></li>
                         <li class="nav-item"><a href="{% url 'update' %}" class="nav-link {% if url_name == 'update' %}active{% endif %}">Account</a></li>
-                        <li class="mt-2 fw-bold ps-2">Hello, {{ request.user.username|title }}🙂.</li>
+                        <li class="mt-2 fw-bold ps-2" style="color: #333;">Welcome, {{ request.user.username|title }}🙂.</li>
                         {% else %}
                         <li class="nav-item"><a href="{% url 'login' %}" class="nav-link {% if url_name == 'login' %}active{% endif %}">Login</a></li>
                         <li class="nav-item active"><a href="{% url 'register' %}" class="nav-link {% if url_name == 'register' %}active{% endif %}">Register</a></li>
