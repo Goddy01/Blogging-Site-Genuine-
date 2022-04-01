@@ -1,5 +1,8 @@
 <style type="text/css">
-	.card{
+	.container {
+        color: #333;
+    }
+    .card{
 		max-width: 700px;
 		width: 100%;
 	}
@@ -12,12 +15,12 @@
 <div class="container">
 	<div class="row">
 		<!-- Blog Post -->
-		<div class="card m-auto">
+		<div class="card m-auto pt-4">
 			<a href="{% url 'blog:blog_details' post.slug %}">
 				<img class="card-img-top" src="{{blog_post.image.url}}">
 			</a>
 			<div class="card-body mt-2 mb-2">
-				<a href="{% url 'blog:blog_details' post.slug %}">
+				<a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
 					<h2 class="card-title">{{blog_post.title}}</h2>
 				</a>
 				<p class="card-text">{{blog_post.body|safe|truncatechars:180}}</p>

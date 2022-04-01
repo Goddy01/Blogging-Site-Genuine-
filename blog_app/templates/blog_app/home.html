@@ -1,64 +1,100 @@
 {% extends 'base.html' %}
-{% block title %}Home{% endblock title %}
+{% load static %}
 
 {% block content %}
+<style type="text/css">
 
-<style>
-    .blog-post-container {
-        display: block;
-        background-color: gray;
-        margin-bottom: 10px;
-        padding: 10px;
-    }
+	@media (max-width: 768px) { 
+		.right-column{
+			margin-left: 0px;
+		}
+	}
 
-    .logo {
-        width: 250px;
-        height: 100px;
-        margin-top: -2px;
-        }
+	@media (min-width: 768px) { 
+		.right-column{
+			/* margin-left: 20px; */
+            position: absolute;
+            right: 20px;
+		}
+	}
+
+	.blog-post-container{
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	.create-post-bar{
+		background-color: #fff;
+		margin-bottom:20px;
+	}
+
+	.left-column{
+		padding:0px;
+        width: 700px;
+        max-width: 800px;
+	}
+
+	.right-column{
+		padding:0px;
+	}
+	.lead{
+		font-size: 17px;
+	}
 </style>
 
-<div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4 fw-normal"></h1>
-    <p class="fs-5 text-muted"></p>
-  </div>
+
+<!-- main content -->
 <div class="container">
-    <div class="row">
-        
-        <!-- For 'Create Blog', whin the screen is not large -->
-        <div class="col-lg-7 offset-lg-1  d-lg-none">
-            <a href="{% url 'blog:create_blog_post' %}" class="btn btn-primary">Create Post</a>
-        </div>
+	<div class="row">
 
-        <!-- For the left column which is the Blog Feed -->
-        <div class="left-column col-lg-7 offset-lg-1 mt-3 pt-3">
-            <h3>Posts</h3>
-            <div class="blog-post-container">
-                Post 1
-            </div>
-            <div class="blog-post-container">
-                Post 2
-            </div>
-            <div class="blog-post-container">
-                Post 3
-            </div>
-            <div class="blog-post-container">
-                Post 4
-            </div>
-        </div>
+		<!-- blog feed -->
+		<div class="left-column col-lg-7 ">
 
-        <!-- For the right column which is 'Create Blog' when the screen is large -->
-        <div class="right-column offset-lg-1 col-lg-3 d-lg-flex flex-column d-none pt-3">
-            <div class="create-post-bar">
-                <p>Post 1</p>
-                <p>Post 2</p>
-                <p>Post 3</p>
-                <p>Post 4</p>
-                <p>Post 5</p>
-                <a href="{% url 'blog:create_blog_post' %}" class="btn btn-primary">Create Post</a>
-            </div>
-        </div>
+			<!-- Top 'create post' bar -->
+			<div class="d-lg-none mb-3">
+				<div class="card m-auto d-flex flex-column p-3">
+					<img class="img-fluid d-block m-auto pb-2" src="{% static 'index2.jpg' %}" width="72px" height="72px">
+					<p class="lead">CodewithTolu is a blogging website for people who want to write and people who are into short-form or long-form and image-focused content.</p>
+					<p class="m-auto"><a class="btn btn-primary" href="{% url 'blog:create_blog_post' %}">Create post</a></p>
+				</div>
+			</div>
+			<!-- end Top 'create post' bar -->
 
-    </div>
+			<!-- Blog posts-->
+			{% if blog_posts %}
+				{% for post in blog_posts %}
+					<div class="blog-post-container">
+						{% include 'blog/snippets/blog_post_snippet.html' with blog_post=post %}
+					</div>
+				{% endfor %}
+			{% else %}
+				<div class="blog-post-container">
+					{% include 'blog/snippets/blog_post_snippet.html' with query=query %}
+				</div>
+			{% endif %}
+			<!-- End Blog posts-->
+
+		<!-- Pagination -->
+		
+
+		</div>
+		<!-- end blog feed -->
+
+
+		<!-- Right 'create post' column  -->
+		<div class="right-column col-lg-3 d-lg-flex d-none flex-column">
+
+			<div class="card create-post-bar d-flex flex-column p-3">
+				<img class="img-fluid d-block m-auto pb-2" src="{% static 'index2.jpg' %}" width="100%" height="72px">
+				<p class="lead">CodewithTolu is a blogging website for people who want to write and people who are into short-form or long-form and image-focused content.</p>
+				<p class="m-auto"><a class="btn btn-primary" href="{% url 'blog:create_blog_post' %}">Create post</a></p>
+			</div>
+		
+		</div>
+		<!-- end Right 'create post' column  -->
+
+
+
+	</div>
 </div>
+
 {% endblock content %}
