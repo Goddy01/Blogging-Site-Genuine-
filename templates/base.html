@@ -40,16 +40,16 @@
                     </ul>
 
                   {% endwith %}
-                  <div class="search-bar mt-sm-2 mr-2">
-                        <form method="get">
-                            <input type="search" name="query" id="query_id" placeholder="Search..." class="form-control">
-                        </form>
-                  </div>
               </div>
+              <div class="search-bar mt-sm-2 mr-2 my-2">
+                <form method="get">
+                    <input type="search" name="query" id="query_id" placeholder="Search..." class="form-control">
+                </form>
+            </div>
             </header>
           </div>
 
-        <div class="container-fluid" style="margin-top: 7rem;">
+        <div class="container-fluid content" style="margin-top: 7rem;">
             <!-- Body_block -->
             {% block content %}
             {% endblock content %}
