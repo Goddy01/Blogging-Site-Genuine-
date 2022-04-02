@@ -33,7 +33,7 @@
     }
 
     .header {
-        height: 40px;
+        height: 30px;
         padding-top: 30px;
         /* background-color: red; */
         width: 100%;
@@ -47,12 +47,18 @@
         margin-top: 0px;
         }
 
+    .search-bar {
+        position: relative;
+        top: 20px;
+    }
+    
     .search-bar input {
         border-left: none;
         border-right: none;
         resize: none;
         outline: none;
         border-radius: 0;
+        
     }
 
     .footer {
@@ -102,7 +108,7 @@
     }
 
     .header {
-        height: 40px;
+        height: 30px;
         padding: 0;
     }
 
@@ -145,10 +151,7 @@ label {
 .fa-search {
     position: absolute;
     right: 5px;
-    bottom: 18px;
+    bottom: 10px;
 }
 </style>
 
-<script type="text/javascript">
-    document.getElementById("id_query").value = "{{query}}"
-</script>

@@ -13,7 +13,7 @@
 
         <div class="container-fluid bg-white px-5">
             <header class="fixed-top" style="background-color: #ECEFF1;">
-              <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 header">
+              <div class="d-flex flex-column flex-md-row align-items-center pb-3 header">
                 <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <span class="fs-4 logo-parent">
                         <img class="logo" src="{% static 'cover.png' %}" alt="ee">
@@ -41,12 +41,17 @@
 
                   {% endwith %}
               </div>
-              <div class="search-bar mt-sm-2 mr-2 my-2">
-                <form method="get">
-                    <input type="search" name="query" id="id_query" placeholder="Search..." class="form-control mt-2" value="{{query}}">
-                    <i class="fas fa-search text-dark"></i>
-                </form>
-            </div>
+
+              {% with request.resolver_match.url_name as url_name %}
+                {% if url_name == 'home_page' %}
+                    <div class="search-bar mt-sm-2 mr-2 my-2">
+                        <form method="get">
+                            <input type="search" name="query" id="id_query" placeholder="Search..." class="form-control" value="{{request.GET.query}}">
+                            <i class="fas fa-search text-dark"></i>
+                        </form>
+                    </div>
+                {% endif %}
+              {% endwith %}
             </header>
           </div>
 
@@ -59,9 +64,11 @@
     
     </div>
 
+    
+
 </body>
 
-<footer>
+<footer class="bg-da" style="background-color: #ECEFF1; color: #333;margin-top: 100px;">
     {% include 'snippets/footer.html' %}
 </footer>
 </html>

@@ -67,8 +67,7 @@ def get_blog_queryset(query=None):
     queries = query.split(" ") # To remove the whitespaces between queries
     for query in queries:
         posts = BlogPost.objects.filter(
-            Q(title__icontains=query),
-            Q(body__contains=query),
+            Q(title__icontains=query) | Q(body__icontains=query)
         ).distinct()
 
         for post in posts:
