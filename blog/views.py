@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404, render, redirect
-from django.urls import reverse
+from django.db.models import Q
 from .forms import (CreateBlogPostForm,
                     UpdateBlogPostForm
                     )
@@ -59,3 +59,18 @@ def update_blog_post_view(request, slug):
     context['blog_post'] = blog_post
     context['update_form'] = update_form
     return render(request, 'blog/edit_blog_post.html', context)
+
+
+def get_blog_queryset(query=None):
+    """The view that performs the search functionality"""
+    queryset = []
+    queries = query.split(" ") # To remove the whitespaces between queries
+    for query in queries:
+        post = BlogPost.objects.filter(
+            Q(title__icontains=query),
+            Q(body__icontains=query)
+        ).distinct()
+
+        queryset.append(post)
+
+    return set(queryset)
