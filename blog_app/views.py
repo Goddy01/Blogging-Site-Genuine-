@@ -9,7 +9,7 @@ def home_page(request):
 
     queries = ""
     if request.GET:
-        queries = request.GET
+        queries = request.GET['query']
     context['queries'] = queries
 
     context['blog_posts'] = blog_posts
