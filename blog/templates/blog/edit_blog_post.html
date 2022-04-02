@@ -60,14 +60,14 @@
 
 <div class="container">
 	<b>
-        <a href="{% url 'blog:blog_details' blog_post.slug %}" style="margin-top: -20px;" class="text-decoration-none">Go to Blog Post</a>
+        <a href="{% url 'blog:blog_details' blog_post.slug %}" style="margin-top: -20px;" class="text-decoration-none text-white">Go to Blog Post</a>
     </b>
     
     <div class="row">
 		<div class="col-lg-7 offset-lg-1">
 
 			{% if success_message %}
-				<h3 style="color:green; text-align: center;">{{success_message}}</h3>
+				<h3 style="color:greenyellow; text-align: center;">{{success_message}}</h3>
 			{% endif %}
 
 			<form class="create-form" method="post" enctype="multipart/form-data">

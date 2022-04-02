@@ -43,13 +43,14 @@
               </div>
               <div class="search-bar mt-sm-2 mr-2 my-2">
                 <form method="get">
-                    <input type="search" name="query" id="query_id" placeholder="Search..." class="form-control">
+                    <input type="search" name="query" id="id_query" placeholder="Search..." class="form-control mt-2" value="{{query}}">
+                    <i class="fas fa-search text-dark"></i>
                 </form>
             </div>
             </header>
           </div>
 
-        <div class="container-fluid content" style="margin-top: 7rem;">
+        <div class="container-fluid content" style="margin-top: 9rem;">
             <!-- Body_block -->
             {% block content %}
             {% endblock content %}

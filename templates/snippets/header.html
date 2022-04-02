@@ -18,6 +18,7 @@
 <style type="text/css">
         .content {
             margin: 0 auto;
+            margin-top: 120px;
         }
         
         body {
@@ -28,6 +29,7 @@
     .main{
         min-height: 100vh;
         height:100%;
+        margin-top: 20px;
     }
 
     .header {
@@ -40,9 +42,9 @@
     
 
     .logo {
-        width: 250px;
-        height: 100px;
-        /* margin-top: 15px; */
+        width: 200px;
+        height: 80px;
+        margin-top: 0px;
         }
 
     .search-bar input {
@@ -94,10 +96,6 @@
   max-width: 960px;
 }
 
-.pricing-header {
-  max-width: 700px;
-}
-
 @media (max-width: 767px) {
     .nav-list {
         display: none;
@@ -127,6 +125,7 @@
         display: inline-block;
     }
 
+
 }
 
 .bg{
@@ -143,4 +142,13 @@ label {
     color: #374150;
 }
 
+.fa-search {
+    position: absolute;
+    right: 5px;
+    bottom: 18px;
+}
 </style>
+
+<script type="text/javascript">
+    document.getElementById("id_query").value = "{{query}}"
+</script>
