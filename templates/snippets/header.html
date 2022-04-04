@@ -20,8 +20,8 @@
         margin: 0 auto;
         margin-top: 120px;
     }
-        
-        body {
+    
+    body {
         background-color: #fff;
         font-family: Arial, Helvetica, sans-serif;
     }
@@ -103,12 +103,8 @@
 }
 
 @media (max-width: 767px) {
-    .nav-list {
-        display: none;
-    }
-
     .header {
-        height: 30px;
+        height: 70px;
         padding: 0;
     }
 
@@ -116,7 +112,6 @@
         width: 180px;
         height: 72px;
         margin-top: -4px;
-        /* background-color: red; */
         }
 
     .navbar-toggler {
@@ -127,15 +122,53 @@
         font-size: 25px;
     }
 
-    .fa-bars {
-        display: inline-block;
-        position: relative;
-        bottom: 17px;
+    .fa-bars, .fa-xmark {
+        
         color: black;
+        font-size: 25px;
     }
 
+    .hamburger {
+        position: fixed;
+        z-index: 100;
+        top: 1rem;
+        right: 1rem;
+        padding: 4px;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        background-color: #ECEFF1;
+    }
 
+    .closeIcon {
+         display: none;
+    }
+
+    .menu {
+        position: fixed;
+        transform: translateY(-100%);
+        /* transition: transform 0.2s; */
+        z-index: 99;
+        background: #ECEFF1;
+        color: white;
+        list-style: none;
+        padding-top: 1rem;
+    }
+
+    .showMenu {
+        transform: translateY(0);
+        height: 50px;
+        background-color: #ECEFF1;
+    }
+
+    .welcome-msg {
+        margin: 0 auto;
+        top: 60px;
+        position: absolute;
+        
+    }
 }
+
 
 .bg{
         /* background-size: 100% 100vh;
@@ -156,7 +189,17 @@ label {
     right: 5px;
     bottom: 10px;
     color: black;
+    cursor: pointer;
 }
 
+#myLinks a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.welcome-msg {
+    margin-bottom: 10px;
+    /* display: inline; */
+}
 </style>
 

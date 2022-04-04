@@ -39,7 +39,7 @@ def login_view(request):
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
-            email = request.POST.get('email')
+            email = request.POST.get('email').lower()
             password = request.POST.get('password')
 
             user = authenticate(email=email, password=password)

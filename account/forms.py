@@ -21,7 +21,7 @@ class LoginForm(forms.ModelForm):
 
     def clean(self):
         if self.is_valid():
-            email = self.cleaned_data.get('email')
+            email = self.cleaned_data.get('email').lower()
             password = self.cleaned_data.get('password')
 
             user = authenticate(email=email, password=password)
@@ -36,7 +36,7 @@ class AccountUpdateForm(forms.ModelForm):
         fields = ('email', 'username')
 
     def clean_email(self):
-        email = self.cleaned_data.get('email')
+        email = self.cleaned_data.get('email').lower()
 
         try:
             # Ckecking if this email does not already exist in the database
