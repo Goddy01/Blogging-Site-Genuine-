@@ -6,7 +6,7 @@ class CreateBlogPostForm(forms.ModelForm):
     class Meta():
         model = BlogPost
         fields = ('title', 'body', 'image')
-
+    instance = ""
 class UpdateBlogPostForm(forms.ModelForm):
     class Meta():
         model = BlogPost

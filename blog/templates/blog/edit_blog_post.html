@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
+{% block title %}Update Blog Post {% endblock title %}
 
 {% block content %}
 <style type="text/css">
+    .header {
+            margin-bottom: 20px;
+    }
 
     label {
         font-weight: bold;
@@ -89,7 +93,9 @@
 				<!-- Image -->
 				<label for="id_image_display">Image</label>
                 <div class="form-group mb-3 mt-1 image-group" id="id_image_group">
-					<img class="img-fluid image" src="{{blog_post.image.url}}" id="id_image_display">
+					{% if blog_post.image %}
+                        <img class="img-fluid image" src="{{blog_post.image.url}}" id="id_image_display">
+                    {% endif %}
 					  <div class="middle">
 					    <div class="text">Change image</div>
 					  </div>

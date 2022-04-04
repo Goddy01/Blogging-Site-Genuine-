@@ -45,11 +45,11 @@
         <h1 class="h3 mb-3 fw-normal text-center">Sign-in</h1>
     
         <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email">
+            <input type="email" class="form-control" id="floatingInput" name="email" placeholder="Email" value="{{request.POST.email}}">
             <label for="floatingInput">Email Address</label>
         </div>
         <div class="form-floating">
-            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+            <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password" value="{{request.POST.password}}">
             <label for="floatingPassword">Password</label>
         </div>
 
