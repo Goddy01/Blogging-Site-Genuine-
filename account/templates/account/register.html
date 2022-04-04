@@ -69,15 +69,15 @@
     {% for field in form %}
             <p>
                 {% for error in field.errors %}
-                    <p style="color: red;">{{error}}</p>
+                    <b style="color: rgb(175, 23, 23);">{{error}}</b>
                 {% endfor %}
             </p>
 
 
         {% endfor %}
         {% if update_form.non_field_errors %}
-            <div style="color: red;">
-                <p>{{update_form.non_field_errors}}</p>
+            <div style="color: rgb(175, 23, 23);">
+                <b>{{update_form.non_field_errors}}</b>
             </div>
         {% endif %}
             

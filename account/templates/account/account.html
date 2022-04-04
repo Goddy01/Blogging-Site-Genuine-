@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 {% load placeholders %}
-{% block title %}Update Account Details{% endblock title %}
+{% block title %}Profile{% endblock title %}
 {% block content %}
     <style>
+        .header {
+            margin-bottom: 20px;
+        }
         .form-signin {
         width: 100%;
         max-width: 330px;
@@ -65,15 +68,15 @@
         {% for field in update_form %}
                 <p>
                     {% for error in field.errors %}
-                        <p style="color: red;">{{error}}</p>
+                        bp style="color: rgb(175, 23, 23);">{{error}}</b>
                     {% endfor %}
                 </p>
 
     
             {% endfor %}
             {% if update_form.non_field_errors %}
-                <div style="color: red;">
-                    <p>{{update_form.non_field_errors}}</p>
+                <div style="color: rgb(175, 23, 23);">
+                    <b>{{update_form.non_field_errors}}</b>
                 </div>
             {% endif %}
                 

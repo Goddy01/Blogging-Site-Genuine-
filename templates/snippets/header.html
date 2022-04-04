@@ -16,10 +16,23 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style type="text/css">
-        .content {
-            margin: 0 auto;
-            margin-top: 120px;
+    @media(max-width: 767px) {
+        header {
+            padding-bottom: 20px;
+            background-color: red;
         }
+
+        .fa-bars {
+            position: relative;
+            bottom: 7px;
+            color: #333;
+        }
+    }
+
+    .content {
+        margin: 0 auto;
+        margin-top: 120px;
+    }
         
         body {
         background-color: #fff;
@@ -153,5 +166,6 @@ label {
     right: 5px;
     bottom: 10px;
 }
+
 </style>
 

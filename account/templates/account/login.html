@@ -56,14 +56,14 @@
         {% for field in login_form %}
                 <p>
                     {% for error in field.errors %}
-                        <p style="color: red;">{{error}}</p>
+                    <b style="color: rgb(175, 23, 23);">{{error}}</b>
                     {% endfor %}
                 </p>
     
             {% endfor %}
             {% if login_form.non_field_errors %}
-                <div style="color: red;">
-                    <p>{{login_form.non_field_errors}}</p>
+                <div style="color: rgb(175, 23, 23);">
+                    <b>{{login_form.non_field_errors}}</b>
                 </div>
             {% endif %}
     
