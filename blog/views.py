@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, redirect
 from django.db.models import Q
 from .forms import (CreateBlogPostForm,
@@ -83,7 +83,10 @@ def get_blog_queryset(query=None):
 
     return list(set(queryset))
 
-class DeleteBlogPost(LoginRequiredMixin, DeleteView):
-    login_url = '/login/'
-    model = BlogPost
-    success_url = reverse_lazy('home_page')
+def delete_blog_post(request, slug):
+    blog_post = get_object_or_404(BlogPost, slug=slug)
+    # perform some validation, 
+    # like can this user delete this post or not, etc.
+    # if validation is successful, delete the article
+    blog_post.delete()
+    return HttpResponseRedirect('/')
