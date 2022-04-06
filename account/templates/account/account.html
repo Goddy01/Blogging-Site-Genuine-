@@ -84,15 +84,16 @@
 
     <div class="container mt-4 p-4">
         <div class="row">
-            <div class="blog-posts">
-                <h2 class="mb-4">Blog Posts({{blog_posts|length}}):</h2>
+            <div class="blog-posts bg-dangeer" style="width: 100%;">
+                <h2 class="mb-4 fw-bolder">Blog Posts({{blog_posts|length}}):</h2>
 
                 {% if blog_posts %}
                     <ul class="list-group">
                         {% for blog_post in blog_posts %}
-                        <p class="fw-bolder">{{ forloop.counter }}</p>
-                        <a class="text-white" href="{% url 'blog:blog_details' blog_post.slug %}" style="text-decoration: none;">
-                                <li class="list-group-item text-white fw-bold mb-3" style="background-color: #36404F;border:none;border-radius: 10px;">{{blog_post}}</li>
+                        <a class="my-3" href="{% url 'blog:blog_details' blog_post.slug %}" style="text-decoration: none;background-color: #36404F;border:none;border-radius: 10px;padding: 10px 20px;">
+                            <p class="fw-bold text-white d-inline">{{ forloop.counter }}</p>
+                                <li class="text-white list-group-item mb-3 d-inline" style="background-color: #36404F;">
+                                    {{blog_post}}</li>
                             </a>
                         {% endfor %}
                     </ul>

@@ -38,7 +38,7 @@
               <p class="card-text">{{blog_details.body|safe}}</p>
                 {% if blog_details.author == request.user %}
                 <a href="{% url 'blog:update_blog_post' blog_details.slug %}" class="btn btn-primary">Update Blog Post</a>
-                <a href="{% url 'blog:delete_blog_post' blog_details.slug %}" class="btn btn-danger">Delete Blog Post</a>
+                <a href="{% url 'blog:delete_blog_post' blog_details.slug %}" class="btn" style="background-color: red;color: #fff;border: none;">Delete Blog Post</a>
                 {% endif %}
             </div>
           </div>
