@@ -15,34 +15,81 @@
     .card {
         max-width: 900px;
         min-width: 200px;
-        margin: 0 auto;
+        /* margin: 0 auto; */
     }
 
     .container {
         padding: 20px;
     }
+
+    .rightside-posts {
+        position: absolute;
+        right: 0;
+        top: 80px;
+    }
+    
+    @media (max-width: 991px) {
+    .rightside-posts {
+        display: none;
+    }
+
+    .footer {
+        margin-top: 0;
+    }
+    }
+
+    @media (min-width: 991px) {
+        .footer {
+        clear: both;
+        position: relative;
+        margin-top: 400px;
+    }
+
+    }
     
 </style>
 
-<div class="container">
-    <div class="row">
-        <div class="card py-3 mt-2">
-            {% if blog_details.image %}
-            <img src="{{blog_details.image.url}}" class="card-img-top">
-            {% endif %}
-            <p class="text-muted px-3 pt-3">
-                Updated on {{blog_details.date_updated}} by {{blog_details.author|title}}
-            </p>
-            <div class="card-body">
-              <h1 class="card-title">{{blog_details.title}}</h1>
-              <p class="card-text">{{blog_details.body|safe}}</p>
-                {% if blog_details.author == request.user %}
-                <a href="{% url 'blog:update_blog_post' blog_details.slug %}" class="btn btn-primary">Update Blog Post</a>
-                <a href="{% url 'blog:delete_blog_post' blog_details.slug %}" class="btn" style="background-color: red;color: #fff;border: none;">Delete Blog Post</a>
+<div class="parent">
+    <div class="container">
+        <div class="row">
+            <div class="card py-3 mt-2 col-lg-9">
+                {% if blog_details.image %}
+                <img src="{{blog_details.image.url}}" class="card-img-top">
                 {% endif %}
-            </div>
-          </div>
+                <p class="text-muted px-3 pt-3">
+                    Updated on {{blog_details.date_updated}} by {{blog_details.author|title}}
+                </p>
+                <div class="card-body">
+                  <h1 class="card-title">{{blog_details.title}}</h1>
+                  <p class="card-text">{{blog_details.body|safe}}</p>
+                    {% if blog_details.author == request.user %}
+                    <a href="{% url 'blog:update_blog_post' blog_details.slug %}" class="btn btn-primary">Update Blog Post</a>
+                    <a href="{% url 'blog:delete_blog_post' blog_details.slug %}" class="btn" style="background-color: red;color: #fff;border: none;">Delete Blog Post</a>
+                    {% endif %}
+                </div>
+              </div>
+        </div>
     </div>
+    
+    <div class="rightside-posts col-lg-3 d-lg-flex d-none flex-column mt-4">
+        {% for post in blog_post %}
+            <div class="blog-post-container" style="margin-bottom: 20px;">
+                <div class="card m-auto px-2 pt-3" style="width: 200px;height: auto;">
+                    <a href="{% url 'blog:blog_details' post.slug %}">
+                        {% if post.image %}
+                            <img class="card-img-top" src="{{post.image.url}}">
+                        {% endif %}
+                    </a>
+                    <div class="card-body mt-2 mb-2">
+                        <a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
+                            <b class="card-title">{{post.title}}</b>
+                        </a>
+                        <p class="card-text">{{post.body|safe|truncatechars:100}}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
 </div>
-
 {% endblock content %}

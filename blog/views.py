@@ -13,6 +13,8 @@ from blog.models import (
 from django.views.generic import DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from django.utils import timezone
+from random import shuffle
 # Create your views here.
 
 def create_blog_view(request):
@@ -40,6 +42,10 @@ def blog_details_view(request, slug):
     """The view to get the details of a blog"""
     context = {}
     blog_details = get_object_or_404(BlogPost, slug=slug)
+    # blog_posts = BlogPost.objects.all()[:3]
+    # blog_posts = sorted(BlogPost, key=attrgetter('date_updated'), reverse=True)[:5]
+    blog_posts = BlogPost.objects.filter(date_published__lte=timezone.now()).order_by('?')[:3]
+    context['blog_post'] = blog_posts
     context['blog_details'] = blog_details
     return render(request, 'blog/blog_details.html', context)
 
