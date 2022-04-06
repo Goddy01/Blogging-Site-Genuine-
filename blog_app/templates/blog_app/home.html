@@ -3,28 +3,6 @@
 {% block title %}Home{% endblock title %}
 {% block content %}
 <style type="text/css">
-        
-	@media (max-width: 991px) { 
-		.right-column{
-			margin-left: 0px;
-            display: none;
-		}
-
-        .content {
-            width: 100%;
-        }
-	}
-
-	@media (min-width: 992px) { 
-		.right-column{
-			/* margin-left: 20px; */
-            position: absolute;
-            right: 20px;
-		}
-	}
-
-
-
 	.blog-post-container{
 		margin-bottom: 20px;
 		width: 100%;
@@ -46,6 +24,25 @@
 	}
 	.lead{
 		font-size: 17px;;
+	}
+
+    @media (max-width: 991px) { 
+		.right-column{
+			margin-left: 0px;
+            display: none;
+		}
+
+        .content {
+            width: 100%;
+        }
+	}
+
+	@media (min-width: 992px) { 
+		.right-column{
+			/* margin-left: 20px; */
+            position: absolute;
+            right: 20px;
+		}
 	}
 </style>
 
