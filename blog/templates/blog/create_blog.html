@@ -37,6 +37,7 @@
 
                 <form class="create-form" method="post" enctype="multipart/form-data">
                     {% csrf_token %}
+
                     <!-- title -->
                     <div class="form-group">
                         <label for="id_title">Title</label>
@@ -46,7 +47,8 @@
                     <!-- Body -->
                     <div class="form-group">
                         <label for="id_body">Content</label>
-                        <textarea class="form-control" rows="10" type="text" name="body" id="id_body" placeholder="This blog is about..." required></textarea>
+                        {{ create_blog_form.media }}
+                        {{ create_blog_form.body }}
                     </div>
     
                     <!-- Image -->

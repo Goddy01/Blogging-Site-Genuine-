@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from django.conf import settings 
 from django.db.models.signals import pre_save, post_delete
 from django.dispatch import receiver
+from ckeditor.fields import RichTextField
 
 
 def upload_location(instance, filename):
@@ -13,7 +14,8 @@ def upload_location(instance, filename):
 class BlogPost(models.Model):
     """Creates these fields in the database which will all be the attributes of a post"""
     title                   = models.CharField(max_length=50, blank=False, null=False)
-    body                    = models.TextField(max_length=10000, blank=False, null=False)
+    body                    = RichTextField(max_length=10000, blank=False, null=False)
+    # body                    = models.TextField(max_length=10000, blank=False, null=False)
     image                   = models.ImageField(upload_to=upload_location, null=True, blank=True)
     date_published          = models.DateTimeField(auto_now_add=True, verbose_name="date published")
     date_updated            = models.DateTimeField(auto_now=True, verbose_name="date updated")

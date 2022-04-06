@@ -85,9 +85,14 @@
 
 				<!-- Body -->
 				<div class="form-group mb-3">
-					<label for="id_body">Content</label>
-					<textarea class="form-control mt-2" rows="10" type="text" name="body" id="id_body" placeholder="This blog is about..." 
-					required>{{blog_post.body}}</textarea>
+					<label for="id_body">Body</label>
+					<!-- <> -->
+                        
+                        <p value="{{blog_post.body}}">
+                            {{ update_form.media }}
+                            {{ update_form.body }} 
+                        </p>
+                        
 				</div>
 
 				<!-- Image -->

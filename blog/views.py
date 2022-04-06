@@ -60,10 +60,14 @@ def update_blog_post_view(request, slug):
         update_form = UpdateBlogPostForm(request.POST or None, request.FILES or None, instance=blog_post)
         if update_form.is_valid():
             update_form.save()
-            context['success_message'] = 'Blog Post has been updated.'
+            context['success_message'] = f"'{blog_post.title}' has been updated."
 
-    else:
-        update_form = UpdateBlogPostForm(instance=request.user)
+    # else:
+    update_form = UpdateBlogPostForm(instance=request.user, initial = {
+                "title": blog_post.title,
+                "body": blog_post.body,
+                "image": blog_post.image,
+        })
 
     context['blog_post'] = blog_post
     context['update_form'] = update_form
