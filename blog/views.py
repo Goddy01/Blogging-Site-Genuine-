@@ -10,6 +10,9 @@ from .models import BlogPost
 from blog.models import (
     BlogPost
 )
+from django.views.generic import DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 # Create your views here.
 
 def create_blog_view(request):
@@ -25,7 +28,7 @@ def create_blog_view(request):
         author = Account.objects.filter(email=user.email).first() # Return a queryset '.first' gets the first item there
         obj.author = author
         obj.save()
-        context['success_message'] = f'{obj.title} has been posted.'
+        context['success_message'] = f"'{obj.title}' has been posted."
         create_blog_form = CreateBlogPostForm()
     else:
         create_blog_form = CreateBlogPostForm()
@@ -66,7 +69,6 @@ def update_blog_post_view(request, slug):
     context['update_form'] = update_form
     return render(request, 'blog/edit_blog_post.html', context)
 
-
 def get_blog_queryset(query=None):
     """The view that performs the search functionality"""
     queryset = []
@@ -80,3 +82,8 @@ def get_blog_queryset(query=None):
             queryset.append(post)
 
     return list(set(queryset))
+
+class DeleteBlogPost(LoginRequiredMixin, DeleteView):
+    login_url = '/login/'
+    model = BlogPost
+    success_url = reverse_lazy('home_page')
