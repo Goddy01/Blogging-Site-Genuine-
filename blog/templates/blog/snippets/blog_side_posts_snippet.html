@@ -1,5 +1,15 @@
+<style>
+    @media (max-width: 1068px) {
+        .side-cards-parent {
+            /* background-color: red; */
+            margin-left: -20px;
+    }
+    }
+
+</style>
+
 <div class="rightside-posts col-lg-3 d-lg-flex d-none flex-column" style="border-radius: 10px;margin-top:-40px;">
-    <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;width: fit-content;background-color: #F7F9F9;" class="px-4 pt-4">
+    <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;width: fit-content;background-color: #F7F9F9;" class="px-4 pt-4 side-cards-parent">
         <h5 class="suggestions mb-4" style="color: black;white-space: nowrap;">You might be interested in</h5>
         {% for post in blog_post %}
         <div class="blog-post-container" style="margin-bottom: 20px;">

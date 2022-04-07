@@ -26,6 +26,12 @@
 		font-size: 17px;;
 	}
 
+    .right-blogs-feeds {
+        position: absolute;
+        top: 35rem;
+        width: 25vw;
+        right: 10px;
+    }
     @media (max-width: 991px) { 
 		.right-column{
 			margin-left: 0px;
@@ -52,6 +58,7 @@
             margin-left: -200px;
         }
 	}
+    
 </style>
 
 
@@ -107,7 +114,7 @@
             <p class="m-auto"><a class="btn btn-primary" href="{% url 'blog:create_blog_post' %}">Create post</a></p>
         </div>
     
-        <div style="position: absolute;top: 35rem;width: 25vw;right: 10px;">
+        <div class="right-blogs-feeds">
             <!-- <h3 style="color: #374150;width: 100%;margin-left: 30px;white-space: nowrap;">You might be interested in</h3> -->
             {% include 'blog/snippets/blog_side_posts_snippet.html' with blog_post=blog_posts2%}
         </div>
