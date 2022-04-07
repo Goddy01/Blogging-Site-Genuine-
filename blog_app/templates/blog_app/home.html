@@ -19,12 +19,20 @@
         /* max-width: 800px; */
 	}
 
+    .rightside-posts {
+        position: relative;
+    }
+
 	.right-column{
 		padding:0px;
 	}
 	.lead{
 		font-size: 17px;;
 	}
+
+    .suggestions {
+        display: none;
+    }
 
     @media (max-width: 991px) { 
 		.right-column{
@@ -101,6 +109,10 @@
 				<p class="m-auto"><a class="btn btn-primary" href="{% url 'blog:create_blog_post' %}">Create post</a></p>
 			</div>
 		
+            <div style="position: absolute;top: 30rem;">
+                <h3 style="color: #374150;width: 100%;">You might be interested in</h3>
+                {% include 'blog/snippets/blog_side_posts_snippet.html' with blog_post=blog_posts2%}
+            </div>
 		</div>
 		<!-- end Right 'create post' column  -->
 

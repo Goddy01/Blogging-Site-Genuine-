@@ -1,0 +1,22 @@
+
+
+<div class="rightside-posts col-lg-3 d-lg-flex d-none flex-column mt-4" style="margin-left: 20px;">
+    <h3 class="suggestions mb-3" style="color: #374150;width: 100%;white-space: nowrap;">You might be interested in</h3>
+    {% for post in blog_post %}
+        <div class="blog-post-container" style="margin-bottom: 20px;">
+            <div class="card d-flex flex-column p-2" style="width: 330px;height: auto;border-radius: 10px;">
+                <a href="{% url 'blog:blog_details' post.slug %}">
+                    {% if post.image %}
+                        <img class="img-fluid card-img-top" src="{{post.image.url}}">
+                    {% endif %}
+                </a>
+                <div class="card-body mt-2 mb-2">
+                    <a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
+                        <b class="card-title">{{post.title}}</b>
+                    </a>
+                    <p class="card-text">{{post.body|safe|truncatechars:70}}</p>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
