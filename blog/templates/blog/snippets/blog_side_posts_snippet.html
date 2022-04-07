@@ -1,8 +1,7 @@
-
-
-<div class="rightside-posts col-lg-3 d-lg-flex d-none flex-column mt-4" style="margin-left: 20px;">
-    <h3 class="suggestions mb-3" style="color: #374150;width: 100%;white-space: nowrap;">You might be interested in</h3>
-    {% for post in blog_post %}
+<div class="rightside-posts col-lg-3 d-lg-flex d-none flex-column mt-4" style="width: fit-content;border-radius: 10px;">
+    <h3 class="suggestions mb-4" style="color: #374150;width: 100%;white-space: nowrap;">You might be interested in</h3>
+    <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;" class="px-4 pt-4">
+        {% for post in blog_post %}
         <div class="blog-post-container" style="margin-bottom: 20px;">
             <div class="card d-flex flex-column p-2" style="width: 330px;height: auto;border-radius: 10px;">
                 <a href="{% url 'blog:blog_details' post.slug %}">
@@ -19,4 +18,5 @@
             </div>
         </div>
     {% endfor %}
+    </div>
 </div>
