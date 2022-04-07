@@ -1,21 +1,33 @@
 <style type="text/css">
 	.container {
         color: #333;
+        
     }
-    .card{
-		max-width: 700px;
-		width: 100%;
+    .card, .container{
+		width: 50vw;
 	}
 	.card-body{
 		padding: 20px;
 	}
+    @media (max-width:991px) {
+        .container {
+            width: 100vw;
+            /* background-color: blue; */
+        }
+        
+        .blog-post {
+            /* background-color: red; */
+            width: 80vw;
+            margin: 0 auto;
+        }
+    }
 </style>
 
 {% if blog_post %}
 <div class="container">
 	<div class="row">
 		<!-- Blog Post -->
-		<div class="card m-auto pt-3">
+		<div class="card m-auto pt-3 blog-post">
 			<a href="{% url 'blog:blog_details' post.slug %}">
                 {% if blog_post.image %}
                     <img class="card-img-top" src="{{blog_post.image.url}}">

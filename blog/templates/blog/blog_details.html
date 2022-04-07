@@ -23,7 +23,7 @@
 
     .rightside-posts {
         position: absolute;
-        right: 0;
+        right: 20px;
         top: 80px;
     }
 
@@ -33,7 +33,10 @@
         padding: 7px 10px;
     }
 
-    
+    .card-page {
+        width: 50vw;
+    }
+
     @media (max-width: 396px) {
         .update {
             margin-bottom: 20px;
@@ -56,9 +59,15 @@
     .footer {
         margin-top: 0;
     }
+
+    .card-page {
+        width: 80vw;
+        margin: 0 auto;
+        /* background-color: red; */
+    }
     }
 
-    @media (min-width: 991px) {
+    @media (min-width: 992px) {
         .footer {
         clear: both;
         position: relative;
@@ -71,7 +80,7 @@
 <div class="parent">
     <div class="container">
         <div class="row">
-            <div class="card py-3 mt-2 col-lg-9">
+            <div class="card card-page py-3 mt-2 col-lg-9">
                 {% if blog_details.image %}
                 <img src="{{blog_details.image.url}}" class="card-img-top">
                 {% endif %}
