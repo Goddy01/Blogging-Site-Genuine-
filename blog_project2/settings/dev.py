@@ -1,7 +1,7 @@
 from .base import *
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!-iji1-3@$w-)&gio@)xyjk1pv#ql38^-&n)9f416d&j_01yj('
+SECRET_KEY = 'abc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -20,4 +20,4 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = 'media/'
 
-STATIC_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / 'media'
