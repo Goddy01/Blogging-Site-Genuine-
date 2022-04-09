@@ -10,11 +10,14 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
+import dj_database_url
 from pathlib import Path
+from decouple import config
+from dotenv import load_dotenv, find_dotenv
 import os
 
 # Build paths inside the project likec this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # MEDIA_DIR = os.path.join(BASE_DIR, 'media')
@@ -22,21 +25,7 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!-iji1-3@$w-)&gio@)xyjk1pv#ql38^-&n)9f416d&j_01yj('
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
-if DEBUG: 
-    # Show the url to reset the password in the console.
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-else:
-    # Actually sends it to the user's email address.
-    pass
 
 # Application definition
 
@@ -46,6 +35,9 @@ INSTALLED_APPS = [
     'blog_app',
     'blog',
     'ckeditor',
+    # For production
+    'django_extensions',
+    'storages',
 
     # django's
     'django.contrib.admin',
@@ -93,11 +85,10 @@ WSGI_APPLICATION = 'blog_project2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+load_dotenv(find_dotenv()) # To find a dotenv file if i'm using that otherwise to load env variable to my code.
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600)
 }
 
 
@@ -140,6 +131,8 @@ USE_I18N = True
 USE_TZ = True
 
 
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
@@ -148,10 +141,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'media'),
 ]
 
-STATIC_URL = 'static/'
-MEDIA_URL = '/media/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
+# STATIC_URL = 'static/'
+# MEDIA_URL = '/media/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
