@@ -83,5 +83,5 @@ LOGGING = {
 }
 
 # Heroku Settings
-django_on_heroku.settings(locals(), staticfiles=False)
+django_on_heroku.settings(locals(), staticfiles=True)
 del DATABASES['default']['OPTIONS']['sslmode']
