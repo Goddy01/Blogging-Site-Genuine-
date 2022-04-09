@@ -53,6 +53,11 @@ MANIFEST
 *.manifest
 *.spec
 
+
+# Heroku
+heroku/
+
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
