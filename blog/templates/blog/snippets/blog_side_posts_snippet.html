@@ -15,7 +15,7 @@
     <div style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;width: fit-content;background-color: #F7F9F9;" class="px-4 pt-4 side-cards-parent">
         <h5 class="suggestions mb-4 no-italics" style="color: black;white-space: nowrap;">You might be interested in</h5>
         {% for post in blog_post %}
-        <div class="blog-post-container" style="margin-bottom: 20px;">
+        <div class="blog-post-container my-4">
             <div class="card d-flex flex-column p-2" style="width: 20vw;height: auto;border-radius: 10px;">
                 <!-- <a href="{% url 'blog:blog_details' post.slug %}">
                     {% if post.image %}
@@ -24,7 +24,7 @@
                 </a> -->
                 <div class="card-body mt-2 mb-2">
                     <a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
-                        <h2 class="card-title no-italics">{{post.title}}</h2>
+                        <h3 class="card-title no-italics">{{post.title}}</h3>
                     </a>
                     <p class="card-text no-italics">{{post.body|safe|  truncatechars:300}}</p>
                 </div>
