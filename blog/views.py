@@ -32,6 +32,7 @@ def create_blog_view(request):
         obj.save()
         context['success_message'] = f"'{obj.title}' has been posted."
         create_blog_form = CreateBlogPostForm()
+        return redirect('home_page')
     else:
         create_blog_form = CreateBlogPostForm()
     context['create_blog_form'] = create_blog_form
@@ -67,6 +68,7 @@ def update_blog_post_view(request, slug):
         if update_form.is_valid():
             update_form.save()
             context['success_message'] = f"'{blog_post.title}' has been updated."
+            return redirect('home_page')
 
     # else:
     update_form = UpdateBlogPostForm(instance=request.user, initial = {
