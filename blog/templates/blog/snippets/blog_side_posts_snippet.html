@@ -14,16 +14,16 @@
         {% for post in blog_post %}
         <div class="blog-post-container" style="margin-bottom: 20px;">
             <div class="card d-flex flex-column p-2" style="width: 20vw;height: auto;border-radius: 10px;">
-                <a href="{% url 'blog:blog_details' post.slug %}">
+                <!-- <a href="{% url 'blog:blog_details' post.slug %}">
                     {% if post.image %}
                         <img class="img-fluid card-img-top" src="{{post.image.url}}">
                     {% endif %}
-                </a>
+                </a> -->
                 <div class="card-body mt-2 mb-2">
                     <a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
                         <b class="card-title">{{post.title}}</b>
                     </a>
-                    <p class="card-text">{{post.body|safe|truncatechars:70}}</p>
+                    <p class="card-text">{{post.body|safe|truncatechars:300}}</p>
                 </div>
             </div>
         </div>

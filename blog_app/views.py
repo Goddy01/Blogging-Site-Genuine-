@@ -23,7 +23,7 @@ def home_page(request):
     #     blog_posts = blog_posts_paginator.page(BLOG_POST_PER_PAGE)
     # except EmptyPage:
     #     blog_posts = blog_posts_paginator.get_page(blog_posts_paginator.num_pages)
-    blog_posts2 = BlogPost.objects.all().order_by('?')[:3]
+    blog_posts2 = BlogPost.objects.all().order_by('?')[:5]
     context['blog_posts'] = blog_posts
     context['blog_posts2'] = blog_posts2
     return render(request, 'blog_app/home.html', context)
