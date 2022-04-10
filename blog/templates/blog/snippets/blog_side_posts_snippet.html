@@ -24,9 +24,9 @@
                 </a> -->
                 <div class="card-body mt-2 mb-2">
                     <a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
-                        <h3 class="card-title no-italics">{{post.title}}</h3>
+                        <h3 class="card-title" style="font-style: normal;">{{post.title}}</h3>
                     </a>
-                    <p class="card-text no-italics"         style="font-style: normal;">{{post.body|safe|truncatechars:100}}</p>
+                    <p class="card-text" style="font-style: normal;">{{post.body|safe|truncatechars:100}}</p>
                 </div>
             </div>
         </div>
