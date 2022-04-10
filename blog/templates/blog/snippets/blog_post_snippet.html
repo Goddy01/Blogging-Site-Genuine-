@@ -11,7 +11,7 @@
 	}
     
     .card-img-top {
-        height: 50%;
+        /* height: 50%; */
     }
     @media (max-width:991px) {
         .container {
@@ -36,7 +36,7 @@
 	<div class="row">
 		<!-- Blog Post -->
 		<div class="card m-auto pt-3 blog-post">
-			<a href="{% url 'blog:blog_details' post.slug %}">
+			<a href="{% url 'blog:blog_details' post.slug %}" style="height: 40%;">
                 {% if blog_post.image %}
                     <img class="card-img-top img-fluid" src="{{blog_post.image.url}}">
                 {% endif %}
