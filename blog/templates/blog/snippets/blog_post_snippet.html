@@ -10,8 +10,8 @@
 		padding: 20px;
 	}
     
-    .card-img-top {
-        /* height: 50%; */
+    .no-italics {
+        font-style: normal;
     }
     @media (max-width:991px) {
         .container {
@@ -46,7 +46,7 @@
               </div>
 			<div class="card-body mt-2 mb-2">
 				<a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
-					<h2 class="card-title">{{blog_post.title}}</h2>
+					<h2 class="card-title no-italics">{{blog_post.title}}</h2>
 				</a>
 				<p class="card-text">{{blog_post.body|safe|truncatechars:180}}</p>
 				{% if blog_post.author == request.user %}
