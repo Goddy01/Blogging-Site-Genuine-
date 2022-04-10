@@ -44,12 +44,28 @@ AWS_HEADERS = {
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
+STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+COLLECTFAST_STRATEGY = "collectfast.strategies.boto3.Boto3Strategy"
 
 STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/static/'
 
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
+CACHES = {
+    'default': {
+        # Your default cache
+    },
+    'collectfast': {
+        # Your dedicated Collectfast cache
+    },
+}
+
+COLLECTFAST_CACHE = 'collectfast'
+COLLECTFAST_DEBUG = True
+
+COLLECTFAST_THREADS = 20
 
 # Heroku Logging
 # Prevents displaying Django Errors in Heroku Logs

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # For production
     'django_extensions',
     'storages',
+    'collectfast',
 
     # django's
     'django.contrib.admin',
@@ -163,3 +164,5 @@ CKEDITOR_CONFIGS = {
 }
 # config.width = 500;     // 500 pixels wide.
 # config.width = '75%';   // CSS unit (percent).
+
+
