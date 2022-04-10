@@ -44,7 +44,7 @@
             <div class="text-muted px-3 pt-3">
                 Updated on {{blog_post.date_updated}} by {{blog_post.author|title}}
               </div>
-			<div class="card-body mt-2 mb-2">
+			<div class="card-body mt-2 mb-2" style="height: 50%;">
 				<a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
 					<h2 class="card-title">{{blog_post.title}}</h2>
 				</a>
