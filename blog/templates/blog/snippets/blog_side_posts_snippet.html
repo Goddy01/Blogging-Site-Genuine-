@@ -26,7 +26,7 @@
                     <a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
                         <h3 class="card-title no-italics">{{post.title}}</h3>
                     </a>
-                    <p class="card-text no-italics">{{post.body|safe|  truncatechars:300}}</p>
+                    <p class="card-text no-italics">{{post.body|safe|truncatechars:100}}</p>
                 </div>
             </div>
         </div>

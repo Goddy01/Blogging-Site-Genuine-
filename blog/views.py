@@ -44,7 +44,7 @@ def blog_details_view(request, slug):
     blog_details = get_object_or_404(BlogPost, slug=slug)
     # blog_posts = BlogPost.objects.all()[:3]
     # blog_posts = sorted(BlogPost, key=attrgetter('date_updated'), reverse=True)[:5]
-    blog_posts = BlogPost.objects.filter(date_published__lte=timezone.now()).order_by('?')[:3]
+    blog_posts = BlogPost.objects.filter(date_published__lte=timezone.now()).order_by('?')[:5]
     context['blog_post'] = blog_posts
     context['blog_details'] = blog_details
     return render(request, 'blog/blog_details.html', context)
