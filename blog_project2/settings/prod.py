@@ -55,14 +55,19 @@ MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
 
 CACHES = {
     'default': {
-        # Your default cache
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
     },
     'collectfast': {
-        # Your dedicated Collectfast cache
+        'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+        'LOCATION': 'collectfast_cache',
+        'TIMEOUT': 60,
+        'OPTIONS': {
+            'MAX_ENTRIES': 10000
+        },
     },
 }
-
 COLLECTFAST_CACHE = 'collectfast'
+
 COLLECTFAST_DEBUG = False
 
 COLLECTFAST_THREADS = 20
