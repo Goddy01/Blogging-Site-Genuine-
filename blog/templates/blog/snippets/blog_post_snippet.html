@@ -9,6 +9,10 @@
 	.card-body{
 		padding: 20px;
 	}
+    
+    .card-img-top {
+        height: auto;
+    }
     @media (max-width:991px) {
         .container {
             width: 100vw;
@@ -20,6 +24,10 @@
             width: 80vw;
             margin: 0 auto;
         }
+
+        /* .card-img-top {
+            height: 10px;
+        } */
     }
 </style>
 
@@ -30,7 +38,7 @@
 		<div class="card m-auto pt-3 blog-post">
 			<a href="{% url 'blog:blog_details' post.slug %}">
                 {% if blog_post.image %}
-                    <img class="card-img-top" src="{{blog_post.image.url}}">
+                    <img class="card-img-top img-fluid" src="{{blog_post.image.url}}">
                 {% endif %}
 			</a>
             <div class="text-muted px-3 pt-3">
