@@ -38,7 +38,7 @@
 		<div class="card m-auto pt-3 blog-post">
 			<a href="{% url 'blog:blog_details' post.slug %}">
                 {% if blog_post.image %}
-                    <img class="card-img-top img-fluid" src="{{blog_post.image.url}}" style="max-height: 80vh;">
+                    <img class="card-img-top img-fluid" src="{{blog_post.image.url}}" style="max-height: 50vh;">
                 {% endif %}
 			</a>
             <div class="text-muted px-3 pt-3">
