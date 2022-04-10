@@ -23,7 +23,7 @@
                     <a href="{% url 'blog:blog_details' post.slug %}" class="text-decoration-none">
                         <b class="card-title">{{post.title}}</b>
                     </a>
-                    <p class="card-text">{{post.body|safe|truncatechars:300}}</p>
+                    <p class="card-text">{{post.body|safe|  truncatechars:300}}</p>
                 </div>
             </div>
         </div>
