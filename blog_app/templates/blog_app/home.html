@@ -6,6 +6,9 @@
     .container {
         /* margin: 0; */
         padding: 20px;
+    }
+
+    .no-italics {
         font-style: normal;
     }
 	.blog-post-container{
@@ -75,7 +78,7 @@
 			<!-- Top 'create post' bar -->
 			<div class="d-lg-none mb-3 mt-3 p-1">
 				<div class="card d-flex flex-column p-2 top-create mx-auto" style="width: 90vw;">
-                    <p class="text-center">
+                    <p class="text-center no-italics">
                         <b>Bloggie</b>
                          is a blogging website for people who want to write and people who are into short-form or long-form and image-focused content.</p>
 					<p class="m-auto"><a class="btn btn-primary" href="{% url 'blog:create_blog_post' %}">Create post</a></p>
