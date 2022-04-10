@@ -102,3 +102,10 @@ def delete_blog_post(request, slug):
     # if validation is successful, delete the article
     blog_post.delete()
     return HttpResponseRedirect('/')
+
+def timezones_view(request):
+
+    tzname = pytz.timezone("Europe/Berlin")
+    timezone.activate(pytz.timezone(tzname))
+
+    render(request, 'blog')
