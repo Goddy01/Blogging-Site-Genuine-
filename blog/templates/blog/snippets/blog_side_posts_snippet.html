@@ -16,7 +16,7 @@
         <h5 class="suggestions mb-4 no-italics" style="color: black;white-space: nowrap;">You might be interested in</h5>
         {% for post in blog_post %}
         <div class="blog-post-container my-4">
-            <div class="card d-flex flex-column p-2" style="width: 20vw;height: auto;border-radius: 10px;">
+            <div class="card d-flex flex-column" style="width: 20vw;height: auto;border-radius: 10px;">
                 <!-- <a href="{% url 'blog:blog_details' post.slug %}">
                     {% if post.image %}
                         <img class="img-fluid card-img-top" src="{{post.image.url}}">
