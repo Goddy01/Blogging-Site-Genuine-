@@ -18,6 +18,7 @@ distlib==0.3.4
 dj-database-url==0.5.0
 Django==4.0.2
 django-ckeditor==6.3.0
+django-easy-timezones==0.8.0
 django-extensions==3.1.5
 django-js-asset==2.0.0
 django-on-heroku==1.1.2
@@ -25,10 +26,10 @@ django-storages==1.12.3
 entrypoints==0.3
 et-xmlfile==1.1.0
 Faker==13.2.0
-fcntl
 filelock==3.6.0
 future==0.18.2
 gunicorn==20.1.0
+ipaddress==1.0.16
 ipykernel==6.6.1
 ipython==7.31.0
 ipython-genutils==0.2.0
@@ -65,13 +66,14 @@ prometheus-client==0.12.0
 prompt-toolkit==3.0.24
 psycopg2-binary==2.9.3
 pycparser==2.21
+pygeoip==0.3.2
 Pygments==2.11.2
 pyparsing==3.0.6
 pyrsistent==0.18.0
 python-dateutil==2.8.2
 python-decouple==3.6
 python-dotenv==0.20.0
-
+pytz==2016.6
 pyzmq==22.3.0
 qtconsole==5.2.2
 QtPy==2.0.0
