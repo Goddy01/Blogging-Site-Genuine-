@@ -45,7 +45,7 @@ def blog_details_view(request, slug):
     blog_details = get_object_or_404(BlogPost, slug=slug)
     # blog_posts = BlogPost.objects.all()[:3]
     # blog_posts = sorted(BlogPost, key=attrgetter('date_updated'), reverse=True)[:5]
-    blog_posts = BlogPost.objects.filter(date_published__lte=timezone.now()).order_by('?')[:5]
+    blog_posts = BlogPost.objects.filter(date_published__lte=timezone.now()).order_by('?')[:3]
     context['blog_post'] = blog_posts
     context['blog_details'] = blog_details
     return render(request, 'blog/blog_details.html', context)
@@ -103,9 +103,9 @@ def delete_blog_post(request, slug):
     blog_post.delete()
     return HttpResponseRedirect('/')
 
-def timezones_view(request):
+# def timezones_view(request):
 
-    tzname = pytz.timezone("Europe/Berlin")
-    timezone.activate(pytz.timezone(tzname))
+#     tzname = pytz.timezone("Europe/Berlin")
+#     timezone.activate(pytz.timezone(tzname))
 
-    render(request, 'blog')
+#     render(request, 'blog')
