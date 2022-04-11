@@ -62,8 +62,10 @@ class SetPasswordForm(forms.Form):
     new_password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={
         'class': 'form-control',
         'placeholder': 'Password',
+        'required': 'true',
     }))
     new_password2 = forms.CharField(label='Conform Password', widget=forms.PasswordInput(attrs={
         'class': 'form-control',
         'placeholder': 'Confirm Password',
+        'required': 'true',
     }))

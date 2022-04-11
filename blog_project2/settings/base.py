@@ -175,4 +175,16 @@ EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-DEFAULT_FROM_EMAIL = 'Bloggie <noreply@example.com>'
+DEFAULT_FROM_EMAIL = 'Bloggie <noreply@bloggie-blogapp.com>'
+SERVER_EMAIL = 'bloggie.blogapp@gmail.com'
+
+
+# SEN GRID
+# SENDGRID_API_KEY = os.getenv('SENDGRID_API_KEY') 
+# EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+# EMAIL_HOST = 'smtp.sendgrid.net'
+# EMAIL_HOST_USER = 'apikey' # Exactly that. 
+# EMAIL_HOST_PASSWORD = SENDGRID_API_KEY
+# EMAIL_PORT = 587 # 25 or 587 (for unencrypted/TLS connections).
+# EMAIL_USE_TLS = True
+# DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
