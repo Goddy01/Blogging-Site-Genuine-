@@ -64,10 +64,12 @@ class SetPasswordForm(forms.Form):
         'placeholder': 'Password',
         'required': 'true',
         'íd': 'new_password1',
+        'name': 'new_password1',
     }))
     new_password2 = forms.CharField(label='Conform Password', widget=forms.PasswordInput(attrs={
         'class': 'form-control',
         'placeholder': 'Confirm Password',
         'required': 'true',
         'íd': 'new_password2',
+        'name': 'new_password2',
     }))
