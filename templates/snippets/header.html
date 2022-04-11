@@ -34,10 +34,7 @@
         position: relative;
         overflow-x: hidden;
     }
-    
-    body {
-        
-    }
+
     
     .main{
         min-height: 100vh;
@@ -149,7 +146,7 @@ label {
 
 .fa-search {
     position: absolute;
-    right: 5px;
+    right: 25px;
     bottom: 10px;
     color: black;
     cursor: pointer;
@@ -222,6 +219,11 @@ label {
         transform: translateY(0);
         height: 50px;
         background-color: #ECEFF1;
+        /* background-color: red; */
+        transition: transform 1s ease-out;
+        transform: translateX(-20px);
+        transform: translateY(1px);
+        height: 70px;
     }
 
     .welcome-msg {
