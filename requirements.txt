@@ -25,6 +25,7 @@ django-storages==1.12.3
 entrypoints==0.3
 et-xmlfile==1.1.0
 Faker==13.2.0
+fcntl
 filelock==3.6.0
 future==0.18.2
 gunicorn==20.1.0
