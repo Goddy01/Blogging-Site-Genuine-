@@ -1,6 +1,6 @@
 import email
 from django.core import exceptions
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, SetPasswordForm
 from django import forms
 from .models import Account
 from django.contrib.auth import authenticate
@@ -54,3 +54,16 @@ class AccountUpdateForm(forms.ModelForm):
         except Account.DoesNotExist:
             return username
         raise forms.ValidationError(f'Username: {username}, is already in use.')
+class SetPasswordForm(forms.Form):
+    # …
+    def __init__(self, *args, **kwargs):
+        super(SetPasswordForm, self).__init__(*args, **kwargs)
+
+    new_password1 = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Password',
+    }))
+    new_password2 = forms.CharField(label='Conform Password', widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Confirm Password',
+    }))
