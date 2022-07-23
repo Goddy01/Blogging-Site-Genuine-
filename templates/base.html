@@ -6,6 +6,14 @@
         {% block title %}{% endblock title %}
     </title>
     {% include 'snippets/header.html' %}
+
+    <style>
+        @media (max-width: 991px) {
+            .container-fluid {
+                margin-top: 3rem;
+            }
+    }
+    </style>
 </head>
 <body>
 
@@ -57,7 +65,7 @@
             </header>
           </div>
 
-        <div class="container-fluid content" style="margin-top: 3rem;">
+        <div class="container-fluid content" style="margin-top: 5rem;">
             <!-- Body_block -->
             {% block content %}
             {% endblock content %}
