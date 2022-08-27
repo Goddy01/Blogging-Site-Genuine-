@@ -59,7 +59,7 @@ MANIFEST
 
 
 # For Password Reset
-.env
+
 
 # Installer logs
 pip-log.txt
