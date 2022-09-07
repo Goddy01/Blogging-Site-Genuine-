@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import dj_database_url
 from pathlib import Path
 from decouple import config
-from dotenv import load_dotenv, find_dotenv
 import os
 
 # Build paths inside the project likec this: BASE_DIR / 'subdir'.
@@ -88,7 +87,6 @@ WSGI_APPLICATION = 'blog_project2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-load_dotenv(find_dotenv()) # To find a dotenv file if i'm using that otherwise to load env variable to my code.
 
 DATABASES = {
     'default': dj_database_url.config(default='sqlite:///db.sqlite3', conn_max_age=600)
@@ -173,11 +171,9 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = '587'
 EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = os.environ['EMAIL_HOST_USER']
-# EMAIL_HOST_PASSWORD = os.environ['EMAIL_HOST_PASSWORD']
-EMAIL_HOST_USER = 'bloggie.blogapp@gmail.com'
-EMAIL_HOST_PASSWORD = 'cnzfucrnutxtjjvj'
-# DEFAULT_FROM_EMAIL = 'Bloggie <noreply@bloggie-blogapp.com>'
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = 'Bloggie <noreply@bloggie-blogapp.com>'
 # SERVER_EMAIL = os.environ['EMAIL_HOST_USER']
 
 
