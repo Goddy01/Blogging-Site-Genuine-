@@ -6,15 +6,15 @@ from decouple import config
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = False
 
 ALLOWED_HOSTS = [
     # 'toshiro-django-blog.herokuapp.com',
-    '*',
+    '*'
 ]
-# if DEBUG: 
-#     # Show the url to reset the password in the console.
-#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+if DEBUG: 
+    # Show the url to reset the password in the console.
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # else:
 #     # Actually sends it to the user's email address.
 #     pass

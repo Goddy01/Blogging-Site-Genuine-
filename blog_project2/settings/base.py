@@ -28,6 +28,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 DEBUG = False
 
+ALLOWED_HOSTS = ['*', ]
 # Application definition
 
 INSTALLED_APPS = [
@@ -36,8 +37,6 @@ INSTALLED_APPS = [
     'blog_app',
     'blog',
     'ckeditor',
-    # For production
-    'django_extensions',
     'storages',
     'collectfast',
 
@@ -48,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # For production
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -174,7 +175,7 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'Bloggie <noreply@bloggie-blogapp.com>'
-SERVER_EMAIL = os.environ.get('EMAIL_HOST_USER')
+# SERVER_EMAIL = os.environ.get('EMAIL_HOST_USER')
 
 
 # SEN GRID
