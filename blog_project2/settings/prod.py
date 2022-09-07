@@ -9,7 +9,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'toshiro-django-blog.herokuapp.com',
+    # 'toshiro-django-blog.herokuapp.com',
+    '*',
 ]
 # if DEBUG: 
 #     # Show the url to reset the password in the console.
