@@ -187,3 +187,5 @@ DEFAULT_FROM_EMAIL = 'Bloggie <noreply@bloggie-blogapp.com>'
 # EMAIL_PORT = 587 # 25 or 587 (for unencrypted/TLS connections).
 # EMAIL_USE_TLS = True
 # DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+
+CSRF_TRUSTED_ORIGINS = ["https://bloggie.up.railway.app", "https://www.bloggie.up.railway.app"]
