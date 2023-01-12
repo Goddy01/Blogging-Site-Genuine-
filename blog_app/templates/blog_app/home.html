@@ -89,7 +89,7 @@
 
 			<div class="mt-4 middle">
                 <!-- Blog posts-->
-                {% if blog_posts %}
+                {% if not request.GET.query %}
                 {% for post in blog_posts %}
                     <div class="blog-post-container">
                         {% include 'blog/snippets/blog_post_snippet.html' with blog_post=post %}
